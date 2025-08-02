@@ -1,41 +1,29 @@
-letcode Alerts:
-
 package launchernew;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class Alerts {
-   public Alerts() {
+public class Amazontest {
+   public Amazontest() {
    }
 
    public static void main(String[] args) throws InterruptedException {
       System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
       ChromeDriver driver = new ChromeDriver();
-      driver.get("https://www.letcode.in/alert");
+      driver.get("https://www.amazon.in/ref=nav_logo");
       driver.manage().window().maximize();
-      driver.findElementById("accept").click();
-      Alert alert = driver.switchTo().alert();
-      Thread.sleep(1000L);
-      String text = alert.getText();
-      System.out.println(text);
-      alert.accept();
+      driver.findElementByClassName("a-button-text").click();
+      driver.findElementById("twotabsearchtextbox").sendKeys(new CharSequence[]{"mens shirt cotton"});
+      driver.findElementById("nav-search-submit-button").click();
+      Thread.sleep(3000L);
+      driver.findElementByClassName("a-dropdown-label").click();
       Thread.sleep(2000L);
-      driver.findElementById("confirm").click();
-      Alert confirm = driver.switchTo().alert();
-      Thread.sleep(2000L);
-      String ale = confirm.getText();
-      System.out.println(ale);
-      Thread.sleep(1000L);
-      alert.dismiss();
-      driver.findElementById("prompt").click();
-      driver.switchTo().alert();
-      Thread.sleep(2000L);
-      alert.sendKeys("Sathik");
-      System.out.println(alert.getText());
-      Thread.sleep(1000L);
-      alert.accept();
-      String name = driver.findElementById("myName").getText();
-      System.out.println(name);
+      driver.findElementById("s-result-sort-select_1").click();
+      Thread.sleep(3000L);
+      driver.findElementByLinkText("Men's Casual Button Down Shirts Short Sleeve Cotton Linen Shirt Fashion Textured Beach, Casual Shirt for Men|| Shirt for Men|| Men Stylish Shirt").click();
+      driver.findElementByName("submit.add-to-cart").click();
+      driver.findElementById("sc-buy-box-ptc-button").click();
+      driver.findElementById("ap_email_login").sendKeys(new CharSequence[]{"Sathikbashamsgi@gmail.com"});
+      driver.findElementById("continue").click();
+      driver.findElementById("signInSubmit").click();
    }
 }
