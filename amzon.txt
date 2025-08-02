@@ -1,3 +1,41 @@
-hello sathik 
-hi
-coolie trailer released
+letcode Alerts:
+
+package launchernew;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Alerts {
+   public Alerts() {
+   }
+
+   public static void main(String[] args) throws InterruptedException {
+      System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+      ChromeDriver driver = new ChromeDriver();
+      driver.get("https://www.letcode.in/alert");
+      driver.manage().window().maximize();
+      driver.findElementById("accept").click();
+      Alert alert = driver.switchTo().alert();
+      Thread.sleep(1000L);
+      String text = alert.getText();
+      System.out.println(text);
+      alert.accept();
+      Thread.sleep(2000L);
+      driver.findElementById("confirm").click();
+      Alert confirm = driver.switchTo().alert();
+      Thread.sleep(2000L);
+      String ale = confirm.getText();
+      System.out.println(ale);
+      Thread.sleep(1000L);
+      alert.dismiss();
+      driver.findElementById("prompt").click();
+      driver.switchTo().alert();
+      Thread.sleep(2000L);
+      alert.sendKeys("Sathik");
+      System.out.println(alert.getText());
+      Thread.sleep(1000L);
+      alert.accept();
+      String name = driver.findElementById("myName").getText();
+      System.out.println(name);
+   }
+}
