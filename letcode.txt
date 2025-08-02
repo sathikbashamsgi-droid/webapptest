@@ -1,3 +1,4 @@
 email: sathikbasha********
 password : **********
 server : public
+Ip asdress : 192.168.*****
