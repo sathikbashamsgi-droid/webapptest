@@ -1,2 +1,3 @@
 email: sathikbasha********
 password : **********
+server : public
