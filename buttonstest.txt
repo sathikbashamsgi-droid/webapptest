@@ -1,0 +1,22 @@
+package launchernew;
+
+import java.io.File;
+import java.io.IOException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+
+public class buttontest {
+   public buttontest() {
+   }
+
+   public static void main(String[] args) throws InterruptedException, IOException {
+      System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+      ChromeDriver driver = new ChromeDriver();
+      driver.get("https://www.naukri.com/mnjuser/homepage");
+      File scr = (File)driver.getScreenshotAs(OutputType.FILE);
+      File dest = new File("./snaps/img1.png");
+      FileHandler.copy(scr, dest);
+      driver.quit();
+   }
+}
